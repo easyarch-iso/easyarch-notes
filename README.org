@@ -1,0 +1,11 @@
+* EasyArch Notes
+  This document contains notes for building, testing and running EasyArch ISO.
+
+** Update system before running setup.sh
+   Before running =setup.sh= script, the host system must be updated to the latest state.
+   Meaning all the software and tools and libraries must be up-to-date. The main reason is
+   that if there are updates pending and the =setup.sh= is used to build packages from aur
+   or even the installer itself, it is possible that will be broken due to dependency
+   version mismatch. As a result, the installer may not run at all, or the other aur packages
+   built during =setup.sh= execution, may not run at all in the live system. So it is
+   essential to check for updates and if there are updates, the host system must be updated.
