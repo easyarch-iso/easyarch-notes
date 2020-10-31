@@ -9,3 +9,17 @@
    version mismatch. As a result, the installer may not run at all, or the other aur packages
    built during =setup.sh= execution, may not run at all in the live system. So it is
    essential to check for updates and if there are updates, the host system must be updated.
+
+** Add host-to-guest readonly share in virt-manager
+   After booting into the live system, a readonly host-to-guest folder share can be created
+   in virt-manager. To do so -
+   1. First create a folder in the host which will be shared (i.e VMShared).
+   2. Also create a filesystem hardware in virt-manager like the following images -
+      [[images/virt-manager_filesystem_device.png]]
+      [[images/vmshared_in_virt-manager.jpg]]
+   3. Then boot up the live system, run the following command to mount the readonly shared
+      folder - 
+      #+BEGIN_SRC shell
+        sudo mount -t 9p -o trans=virtio /VMShared VMShared
+      #+END_SRC
+
